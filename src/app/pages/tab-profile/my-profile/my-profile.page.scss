@@ -1,0 +1,74 @@
+ion-header {
+	ion-toolbar {
+		--background: black;
+		color: white;
+	}
+}
+ion-content {
+	ion-item {
+		--border-style: none;
+		// --padding-end: 10px;
+	}
+	.custom-profile-container {
+		margin-top: 10px;
+		border-bottom: 1px solid #d1d1d4;
+		.custom-item-profile {
+			display: flex;
+			ion-avatar {
+				width: 84px;
+				height: 84px;
+				.custom-edit-avatar {
+					position: absolute;
+					top: 0px;
+					left: 94px;
+					width: 12px;
+					height: 12px;
+				}
+			}
+			.custom-div-followers {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				flex: 1;
+				.custom_lbl_followers_count {
+					color: #4a4a4a;
+					font-size: 20px;
+					font-weight: 500;
+					margin-right: 5px;
+				}
+				.custom_lbl_followers {
+					color: #555555;
+					font-size: 14px;
+				}
+			}
+			.custom-button-follow {
+				font-size: 11px;
+				--background: black;
+				width: 62px;
+				height: 24px;
+			}
+		}
+		.custom-presentation-container {
+			p {
+				background: #e3e3e5;
+				padding: 20px;
+				border-radius: 7px;
+				font-size: 16px;
+				line-height: 1.5;
+				margin: 5px 0;
+				width: 100%;
+				position: relative;
+			}
+
+			.custom-edit-presentation {
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+				width: 14px;
+				height: 14px;
+				z-index: 2;
+				margin: 10px;
+			}
+		}
+	}
+}

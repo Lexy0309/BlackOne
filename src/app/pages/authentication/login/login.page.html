@@ -1,0 +1,56 @@
+<ion-content>
+  <button *ngIf="isIosPlatform" class="backclass" (click)="goBack()">
+    <ion-icon class="left_arrow_black"></ion-icon>
+  </button>
+
+  <div class="custom-bg-dot"></div>
+  <ion-grid class="custom-iongrid-signup">
+    <ion-row class="custom-header">
+      <ion-col class="custom-buttongrp" size="10" offset="1">
+        <button class="activated">
+          {{"signin" | translate}}
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <form class="custom-body" [formGroup]="validate_signinform" (ngSubmit)="onSinginSubmit()">
+      <ion-row class="custom-formsignin">
+        <ion-col size="12" offset="0">
+
+          <ion-input type="text" formControlName="email" placeholder="{{'email' | translate}}" name="email">
+          </ion-input>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <div class="error-message"
+                *ngIf="validate_signinform.get('email').hasError(validation.type) && (validate_signinform.get('email').dirty || validate_signinform.get('email').touched)">
+                <ion-label>{{ validation.message }}</ion-label>
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-input type="password" formControlName="password" placeholder="{{'password' | translate}}" name="password"
+            (keypress)="userTypingSingin($event)">
+          </ion-input>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-message"
+                *ngIf="validate_signinform.get('password').hasError(validation.type) && (validate_signinform.get('password').dirty || validate_signinform.get('password').touched)">
+                <ion-label>{{ validation.message }}</ion-label>
+              </div>
+            </ng-container>
+          </div>
+          <button class="custom-forgotpassword" (click)="goForgotPassword()">{{"forgot_password" | translate}}</button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-footer">
+        <ion-col size="12">
+          <ion-button type="submit" [disabled]="isAuthSignin" class="custom-loginbtn">
+            <ion-spinner name="bubbles" *ngIf="isAuthSignin"></ion-spinner>
+            {{'continue' | translate}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+  </ion-grid>
+</ion-content>

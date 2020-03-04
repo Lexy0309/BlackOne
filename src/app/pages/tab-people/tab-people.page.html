@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar" [ngClass]="'custom-color-toolbar-' + newsType">
+    <div>
+      <label class="custom-label white-color">
+        {{'people.title' | translate}} - {{'news.' + newsType | translate | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngIf="experts.length > 0">
+      <ion-item *ngFor="let expert of experts">
+        <ion-avatar class="friendImage" slot="start" (click)="viewProfileInfo(expert)">
+          <ion-img *ngIf="expert.userInfo.photoURL" [src]="expert.userInfo.photoURL"></ion-img>
+          <ion-img *ngIf="!expert.userInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+        </ion-avatar>
+        <div class="custom_friendinfo">
+          <div>
+            <ion-label class="custom_displayname">{{expert.userInfo.name}}</ion-label>
+          </div>
+          <div>
+            <ion-label class="custom_followers">{{expert.followerCount}} {{'people.followers' | translate}}</ion-label>
+          </div>
+        </div>
+        <ion-icon class="ci_follow custom-icon" *ngIf="!expert.isFollow" (click)="doFollow(expert)">
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-icon>
+      </ion-item>
+    </div>
+    <div *ngIf="experts.length == 0 && isLoadedAllExperts == false">
+      <app-people-skeleton-item *ngFor="let item of blankItems">
+      </app-people-skeleton-item>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-newstype-toolbar">
+    <div class="custom-newstype-group">
+      <div class="custom-button-business custom-button" (click)="onChangeNewsType('business')"
+        [ngClass]="newsType == 'business' ? 'custom-button-activated':''">B</div>
+      <div class="custom-button-lady custom-button" (click)="onChangeNewsType('lady')"
+        [ngClass]="newsType == 'lady' ? 'custom-button-activated':''">L</div>
+      <div class="custom-button-agroecology custom-button" (click)="onChangeNewsType('agroecology')"
+        [ngClass]="newsType == 'agroecology' ? 'custom-button-activated':''">A</div>
+      <div class="custom-button-culture custom-button" (click)="onChangeNewsType('culture')"
+        [ngClass]="newsType == 'culture' ? 'custom-button-activated':''">C</div>
+      <div class="custom-button-kids custom-button" (click)="onChangeNewsType('kids')"
+        [ngClass]="newsType == 'kids' ? 'custom-button-activated':''">K</div>
+      <div class="custom-button-sciences custom-button" (click)="onChangeNewsType('sciences')"
+        [ngClass]="newsType == 'sciences' ? 'custom-button-activated':''">S</div>
+    </div>
+  </ion-toolbar>

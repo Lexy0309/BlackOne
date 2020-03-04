@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <button class="backclass" (click)="goBack()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        {{buddyInfo.userInfo.name | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="custom-profile-container">
+    <ion-item class="custom-item-profile">
+      <ion-avatar slot="start">
+        <!-- <ion-img [src]="buddyInfo.userInfo.photoURL"></ion-img> -->
+        <ion-img *ngIf="buddyInfo.userInfo.photoURL" [src]="buddyInfo.userInfo.photoURL"
+          (click)="mediaService.openPhotoViewModal(buddyInfo.userInfo.photoURL)"></ion-img>
+        <ion-img *ngIf="!buddyInfo.userInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+      </ion-avatar>
+      <div>
+        <div class="custom-div-followers">
+          <ion-label class="custom_lbl_followers_count">{{buddyInfo.followerCount}}</ion-label>
+          <ion-label class="custom_lbl_followers">{{'people.followers' | translate}}</ion-label>
+        </div>
+        <div *ngIf="!isOwner">
+          <ion-button *ngIf="!buddyInfo.isFollow" class="custom-button-follow" (click)="doFollow()">
+            {{"people.follow" | translate}}
+          </ion-button>
+          <ion-button *ngIf="buddyInfo.isFollow" class="custom-button-follow" (click)="doUnfollow()">
+            {{"people.unfollow" | translate}}
+          </ion-button>
+          <ion-button class="custom-button-follow" (click)="goMessage(buddyInfo)">{{"people.message" | translate}}
+          </ion-button>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item class="custom-presentation-container">
+      <p>
+        {{buddyInfo.userInfo.presentation}}
+      </p>
+    </ion-item>
+  </div>
+  <div *ngIf="buddyNews.length > 0">
+    <div class="custom-newsitem" *ngFor="let newsItem of buddyNews">
+      <ion-item>
+        <ion-avatar class="custom-avatar">
+          <ion-img *ngIf="buddyInfo.userInfo.photoURL" [src]="buddyInfo.userInfo.photoURL"></ion-img>
+          <ion-img *ngIf="!buddyInfo.userInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+        </ion-avatar>
+        <ion-badge [ngClass]="'custom-color-badge-' + newsItem.newsInfo.newsType">
+          {{newsItem.newsInfo.newsType | translate}}
+        </ion-badge>
+        <ion-label class="custom-timestamp">
+          {{settingService.getDateFromModel(newsItem.newsInfo.timestamp) | relativeTime }}
+        </ion-label>
+      </ion-item>
+      <ion-item (click)="viewNewsDetails(newsItem)">
+        <p class="custom-title">{{newsItem.newsInfo.title}}</p>
+      </ion-item>
+      <ion-item *ngIf="newsItem.newsInfo.newsImage || newsItem.newsInfo.newsVideo">
+        <ion-slides class="custom-slides"
+          [pager]="newsItem.newsInfo.newsImage && newsItem.newsInfo.newsVideo ? 'true' : 'false'" [options]="slideOpts">
+          <ion-slide *ngIf="newsItem.newsInfo.newsImage">
+            <div class="custom-newsimage" [ngStyle]="{'background-image': 'url(' + newsItem.newsInfo.newsImage + ')'}"
+              (click)="mediaService.openPhotoViewModal(newsItem.newsInfo.newsImage)">
+            </div>
+          </ion-slide>
+          <ion-slide *ngIf="newsItem.newsInfo.newsVideo">
+            <div class="custom-newsvideo"
+              [ngStyle]="{'background-image': 'url(' + settingService.selfie_background + ')'}">
+              <ion-icon name="play-circle" (click)="mediaService.openVideoModal(newsItem.newsInfo.newsVideo)">
+              </ion-icon>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </ion-item>
+      <ion-item (click)="viewNewsDetails(newsItem)">
+        <p class="custom-content">
+          {{settingService.getLimtString(newsItem.newsInfo.content)}}
+        </p>
+      </ion-item>
+      <ion-item class="custom-actiongroup">
+        <div class="custom-divgroup">
+          <div class="custom-divitem" (click)="sharing(newsItem)">
+            <ion-icon class="ci_share custom-icon custom-icon-size24"></ion-icon>
+          </div>
+          <div class="custom-divitem" (click)="viewNewsDetails(newsItem)">
+            <ion-label>{{newsItem.newsInfo.commentCount}}</ion-label>
+            <ion-icon class="ci_comment custom-icon custom-icon-size24"></ion-icon>
+          </div>
+          <div class="custom-divitem" (click)="postLike(newsItem)">
+            <ion-label>{{newsItem.newsInfo.likeCount}}</ion-label>
+            <ion-icon class="custom-icon custom-icon-size24"
+              [ngClass]="newsItem.isLike ? 'ci_like_selected' : 'ci_like'">
+            </ion-icon>
+          </div>
+        </div>
+      </ion-item>
+
+    </div>
+  </div>
+
+  <div *ngIf="buddyNews.length == 0 && isLoadedAllBuddyNews == false">
+    <div class="custom-newsitem" *ngFor="let blankItem of blankItems">
+      <app-news-skeleton-item></app-news-skeleton-item>
+    </div>
+  </div>
+</ion-content>

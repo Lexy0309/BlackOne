@@ -1,0 +1,23 @@
+ion-header {
+	ion-toolbar {
+		--background: black;
+		color: white;
+	}
+}
+ion-content {
+	--background: #f7f7fa;
+	.custom-textarea-container {
+		margin: 20px 0px;
+		ion-textarea {
+			border: 1px solid #eee;
+			--padding-start: 5px;
+		}
+	}
+	ion-button {
+		width: 228px;
+		height: 46px;
+		display: block;
+		margin: auto;
+		--background: black;
+	}
+}

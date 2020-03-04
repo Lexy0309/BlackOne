@@ -1,0 +1,348 @@
+// header setting
+ion-toolbar {
+	--min-height: 59px;
+	> div {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.backclass {
+		position: absolute;
+		background: transparent;
+		font-size: 20px;
+		padding-left: 15px;
+	}
+	.addclass {
+		background: transparent;
+		font-size: 28px;
+		position: absolute;
+		right: 10px;
+		color: white;
+	}
+	.custom-label {
+		// position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+		z-index: -1;
+		font-size: 16px;
+		font-weight: bold;
+		color: black;
+		font-family: Roboto;
+		letter-spacing: 4px;
+		ion-icon {
+			font-size: 24px;
+		}
+	}
+}
+.white-color {
+	color: white !important;
+}
+.custom-toolbar1 {
+	--padding-bottom: 0px;
+	--padding-top: 0px;
+	--padding-start: 0px;
+	--padding-end: 0px;
+	--min-height: 51px;
+	.custom-button {
+		flex: 1;
+		height: 51px;
+		background: transparent;
+		font-size: 16px;
+		--min-height: 51px;
+		padding: 0px;
+	}
+}
+
+// common custom grid
+.custom-common-grid {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	--ion-grid-padding: 0px;
+	ion-row {
+		flex: 1;
+		ion-col {
+			text-align: center;
+			display: block;
+			margin: auto;
+			font-size: 30px;
+			color: white;
+		}
+	}
+	.custom-business {
+		background-color: #41689e;
+	}
+	.custom-lady {
+		background-color: #4e9084;
+	}
+	.custom-agroecology {
+		background-color: #f68948;
+	}
+	.custom-culture {
+		background-color: #ff7063;
+	}
+	.custom-kids {
+		background-color: #e84e6f;
+	}
+	.custom-sciences {
+		background-color: #9b344a;
+	}
+}
+
+ion-item {
+	--highlight-color-valid: none;
+}
+*:focus {
+	outline: none;
+}
+// news item
+.custom-newsitem {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	ion-item {
+		--border-style: none;
+		.custom-title {
+			font-size: 20px;
+			font-weight: bold;
+			margin: 5px 0px;
+		}
+		.custom-content {
+			font-size: 16px;
+			margin: 5px 0;
+		}
+		video {
+			width: 100%;
+		}
+	}
+	.custom-avatar {
+		width: 32px;
+		height: 32px;
+	}
+	ion-badge {
+		margin-left: 5px;
+	}
+	.custom-username {
+		margin-left: 5px;
+		margin-right: 0;
+	}
+	.custom-slides {
+		width: 100%;
+		--bullet-background-active: red;
+    --bullet-background: gray;
+		ion-slide {
+			ion-img {
+				width: 100%;
+			}
+		}
+	}
+	.custom-newsimage,
+	.custom-newsvideo {
+		width: 100%;
+		background-position: center center;
+		background-size: cover;
+		height: 164px;
+	}
+	.custom-newsvideo {
+		display: flex;
+		ion-icon {
+			margin: auto;
+			width: 50px;
+			height: 50px;
+		}
+	}
+	.custom-timestamp {
+		text-align: right;
+		font-size: 10px;
+	}
+	.custom-actiongroup {
+		.custom-divgroup {
+			display: flex;
+			position: absolute;
+			right: 0px;
+			.custom-divitem {
+				display: flex;
+				margin: 0 10px;
+				ion-label {
+					font-size: 12px;
+					font-weight: bold;
+					line-height: 2;
+				}
+			}
+		}
+	}
+}
+
+// custom deleting dialog
+
+.custom-alert {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #eeea;
+	z-index: 10;
+	.custom-container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+	}
+	.custom-alert-dialog {
+		width: 327px;
+		height: 155px;
+		display: block;
+		text-align: center;
+		margin: auto;
+		border: 1px solid black;
+		border-radius: 12px;
+		background-color: white;
+		.title {
+			margin-top: 28px;
+			ion-label {
+				font-size: 18px;
+				padding: 0px 10px;
+			}
+		}
+		.actionbutton {
+			display: flex;
+			justify-content: center;
+			margin: 20px;
+			ion-icon {
+				// width: 36px;
+				// height: 36px;
+				margin: 5px;
+			}
+		}
+	}
+
+	.custom-alert-edit-dialog {
+		width: 327px;
+		height: 250px;
+		display: block;
+		text-align: center;
+		margin: auto;
+		border: 1px solid black;
+		border-radius: 12px;
+		background-color: white;
+		.title {
+			margin-top: 14px;
+			margin-left: 10px;
+			margin-right: 10px;
+			ion-label {
+				font-size: 18px;
+				padding: 0px 10px;
+			}
+			ion-textarea {
+				margin-top: 10px;
+				height: 150px;
+				border-radius: 5px;
+				border: 1px solid #eee;
+				--padding-start: 10px;
+				text-align: left;
+			}
+		}
+		.actionbutton {
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+			ion-button {
+				width: 70px;
+				height: 21px;
+				margin: 5px;
+				font-size: 9px;
+				--background: black;
+			}
+		}
+	}
+}
+
+// custom credential dialog
+.custom-credential-alert {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #eeea;
+	z-index: 10;
+	.custom-container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+	}
+	.custom-alert-edit-dialog {
+		width: 327px;
+		height: 224px;
+		display: block;
+		margin: auto;
+		border: 1px solid #000;
+		border-radius: 12px;
+		background-color: #f7f7fa;
+		.title {
+			margin-top: 14px;
+			margin-left: 10px;
+			margin-right: 10px;
+			ion-label {
+				font-size: 18px;
+				padding: 5px 10px;
+				display: block;
+				text-align: center;
+			}
+			ion-input {
+				width: 240px;
+				height: 40px;
+				background: white;
+				display: block;
+				margin: 15px auto;
+				--padding-start: 10px;
+				--padding-end: 10px;
+			}
+		}
+		.actionbutton {
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+			ion-button {
+				width: 70px;
+				height: 21px;
+				margin: 5px;
+				font-size: 9px;
+				--background: black;
+			}
+		}
+	}
+}
+
+// custom news uploading dialog
+.custom-news-uploading-alert {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #eeea;
+	z-index: 10;
+	.custom-container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		background: transparent;
+	}
+	.custom-alert-edit-dialog {
+		width: 327px;
+		height: 80px;
+		display: block;
+		text-align: center;
+		margin: auto;
+		border: 1px solid black;
+		border-radius: 12px;
+		background-color: white;
+		.title {
+			height: 100%;
+			display: flex;
+			flex: auto;
+			ion-label {
+				font-size: 18px;
+				padding: 0px 10px;
+				margin: auto;
+			}
+		}
+	}
+}

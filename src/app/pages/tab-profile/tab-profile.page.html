@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <label class="custom-label white-color">
+        {{'setting.title' | translate | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="custom-content">
+    <div class="custom-background">
+      <div class="custom-item custom-business">
+      </div>
+      <div class="custom-item custom-lady">
+      </div>
+      <div class="custom-item custom-agroecology">
+      </div>
+      <div class="custom-item custom-culture">
+      </div>
+      <div class="custom-item custom-kids">
+      </div>
+      <div class="custom-item custom-sciences">
+      </div>
+    </div>
+    <div class="custom-item custom-setting">
+      <div class="custom-setting-container">
+        <div class="custom-main">
+          <ion-item (click)="goMyProfile()">
+            <ion-icon class="ci_myprofile custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.my_profile' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goMyNetwork()">
+            <ion-icon class="ci_mynetwork custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.my_network' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goMyCredentials()">
+            <ion-icon class="ci_credentials custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.my_credentials' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goLanguage()">
+            <ion-icon class="ci_language custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.language' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goShareFeedback()">
+            <ion-icon class="ci_share_feedback custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.share_feedback' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goReportAbuse()">
+            <ion-icon class="ci_report_abuse custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.report_abuse' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goDeleteAccount()">
+            <ion-icon class="ci_delete_account custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.delete_account' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goTermsConditions()">
+            <ion-icon class="ci_terms_conditions custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.terms_conditions' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goPrivacyPolicy()">
+            <ion-icon class="ci_privacy_policy custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.privacy_policy' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goAboutus()">
+            <ion-icon class="ci_aboutus custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.about_us' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goLicense()">
+            <ion-icon class="ci_license custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.license' | translate}}</ion-label>
+          </ion-item>
+          <ion-item (click)="goLogout()">
+            <ion-icon class="ci_logout custom-icon custom-icon-size24"></ion-icon>
+            <ion-label>{{'setting.logout' | translate}}</ion-label>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

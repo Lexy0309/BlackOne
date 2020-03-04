@@ -1,0 +1,69 @@
+ion-header {
+	ion-toolbar {
+		--background: black;
+	}
+}
+ion-content {
+	--background: #f7f7fa;
+	ion-item {
+		--border-style: none;
+	}
+	.custom-content {
+		height: 100%;
+		.custom-setting {
+			min-height: calc(100% - 40px);
+			margin: 20px 10px;
+			position: relative;
+			display: flex;
+			.custom-setting-container {
+				width: 100%;
+				min-height: calc(100% - 40px);
+				background: white;
+				display: flex;
+				flex-direction: column;
+				padding: 20px;
+				border-radius: 10px;
+
+				ion-icon {
+					margin-right: 20px;
+				}
+				ion-label {
+					font-size: 16px;
+					font-weight: 500;
+					font-family: Roboto;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	.custom-background {
+		position: fixed !important;
+		width: 70%;
+		z-index: 0;
+		top: 0;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		.custom-item {
+			flex: 1;
+		}
+		.custom-business {
+			background-color: #41689e;
+		}
+		.custom-lady {
+			background-color: #4e9084;
+		}
+		.custom-agroecology {
+			background-color: #f68948;
+		}
+		.custom-culture {
+			background-color: #ff7063;
+		}
+		.custom-kids {
+			background-color: #e84e6f;
+		}
+		.custom-sciences {
+			background-color: #9b344a;
+		}
+	}
+}

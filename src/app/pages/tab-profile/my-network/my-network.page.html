@@ -1,0 +1,121 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <div>
+      <button class="backclass" (click)="goBack()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        {{'setting.my_network' | translate | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="topclass">
+    <ion-item>
+      <div class="buttongroupclass">
+        <div class="buttonclass" (click)="segmentChanged('followers')">
+          <p class="belowpclass" [ngClass]="segmentTab == 'followers' ? 'segmentActivate' : ''">({{followers.length}})
+            {{'setting.followers' | translate}}
+          </p>
+        </div>
+
+        <div class="dividelineclass"></div>
+
+        <div class="buttonclass" (click)="segmentChanged('following')">
+          <p class="belowpclass" [ngClass]="segmentTab == 'following' ? 'segmentActivate' : ''">({{followings.length}})
+            {{'setting.following' | translate}}
+          </p>
+        </div>
+      </div>
+    </ion-item>
+  </div>
+
+  <div class="bodyclass">
+    <div>
+      <div *ngIf="segmentTab == 'followers'">
+        <div *ngIf="followers.length > 0">
+          <ion-card class="custom-card" *ngFor="let follower of followers">
+            <ion-card-content class="custom-card-content">
+              <ion-item>
+                <ion-avatar (click)="viewProfile(follower)">
+                  <ion-img *ngIf="follower.userInfo.photoURL" [src]="follower.userInfo.photoURL"></ion-img>
+                  <ion-img *ngIf="!follower.userInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+                </ion-avatar>
+                <ion-label class="lb_title_content" (click)="viewProfile(follower)">{{follower.userInfo.name}}
+                </ion-label>
+                <div class="icongroupclass">
+                  <ion-button class="blockclass" (click)="onBlocking(follower.userInfo)">
+                    {{'setting.block' | translate | uppercase}}
+                  </ion-button>
+                </div>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div *ngIf="followers.length == 0 && !isLoadedFollowers">
+          <ion-card class="custom-card" *ngFor="let blankItem of blankItems">
+            <ion-card-content class="custom-card-content">
+              <ion-item>
+                <ion-avatar>
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label class="lb_title_content">
+                  <ion-skeleton-text animated width="50%"></ion-skeleton-text>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+      <div *ngIf="segmentTab == 'following'">
+        <div *ngIf="followings.length > 0">
+          <ion-card class="custom-card" *ngFor="let following of followings">
+            <ion-card-content class="custom-card-content">
+              <ion-item>
+                <ion-avatar (click)="viewProfile(following)">
+                  <ion-img *ngIf="following.userInfo.photoURL" [src]="following.userInfo.photoURL"></ion-img>
+                  <ion-img *ngIf="!following.userInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+                </ion-avatar>
+                <ion-label class="lb_title_content" (click)="viewProfile(following)">{{following.userInfo.name}}
+                </ion-label>
+                <div class="icongroupclass">
+                  <ion-button class="blockclass" (click)="onUnfollow(following.userInfo)">
+                    {{'setting.unfollow' | translate | uppercase}}</ion-button>
+                </div>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div *ngIf="followings.length == 0 && !isLoadedFollwoings">
+          <ion-card class="custom-card" *ngFor="let blankItem of blankItems">
+            <ion-card-content class="custom-card-content">
+              <ion-item>
+                <ion-avatar>
+                  <ion-skeleton-text></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label class="lb_title_content">
+                  <ion-skeleton-text width="50%"></ion-skeleton-text>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<div *ngIf="isShowAlert" class="custom-alert">
+  <div class="custom-container">
+    <div class="custom-alert-dialog">
+      <div class="title">
+        <ion-label>{{"message.do_you_confirm_action" | translate}}</ion-label>
+      </div>
+      <div class="actionbutton">
+        <ion-icon class="ci_cancel custom-icon custom-icon-size52" (click)="onReject()"></ion-icon>
+        <ion-icon class="ci_confirm custom-icon custom-icon-size52" (click)="onAccept()"></ion-icon>
+      </div>
+    </div>
+  </div>
+</div>

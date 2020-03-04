@@ -1,0 +1,65 @@
+ion-header {
+	ion-toolbar {
+		--background: black;
+	}
+}
+ion-content {
+	--background: #f7f7fa;
+
+	// for message list
+	.custom-card-message {
+		margin: 10px !important;
+		background: white;
+		.custom-card-content {
+			padding: 0px;
+			.custom-headeritem {
+				border-bottom: 1px solid #eee;
+				--min-height: 52px;
+			}
+			ion-item {
+				--border-style: none;
+				--min-height: 100px;
+				.friendImage {
+					width: 62px;
+					height: 62px;
+					--padding-start: 8px;
+					position: relative;
+					.onlineoffline_icon {
+						position: absolute;
+						height: 15px;
+						width: 15px;
+						border-radius: 50%;
+						bottom: 0.2em;
+						right: 0;
+						border: 1.5px solid white;
+						background-color: #eee;
+					}
+					.online-background {
+						background-color: rgb(76, 209, 55);
+					}
+				}
+				.friendMessage {
+					width: 100%;
+					.friendName {
+						padding-left: 5px;
+						font-size: 16px;
+						color: black;
+						font-weight: 500;
+						padding-bottom: 10px;
+					}
+					.lastMessage {
+						padding-left: 5px;
+						font-size: 14px;
+						color: black;
+					}
+				}
+				ion-icon {
+					position: absolute;
+					font-size: 8px;
+					right: 10px;
+					top: 28px;
+				}
+			}
+		}
+	}
+}

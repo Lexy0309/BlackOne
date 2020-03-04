@@ -1,0 +1,25 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <div>
+      <button class="backclass" (click)="goSetting()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        <label>{{'setting.share_feedback' | translate | uppercase}}</label>
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-content class="custom-card-content">
+      <div class="custom-textarea-container">
+        <ion-textarea placeholder="{{'message.placeholder_share_feedback' | translate}}" rows="12" [(ngModel)]="feedback">
+        </ion-textarea>
+      </div>
+      <ion-button class="custom-button-primary custom-button1" shape="round" mode="ios" (click)="onConfirm()">
+        {{'confirm' | translate}}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

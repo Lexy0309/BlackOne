@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar" [ngClass]="newsType ? 'custom-color-toolbar-' + newsType : ''">
+    <div>
+      <button class="backclass" (click)="goBack()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        {{'news.share_news' | translate | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-button class="custom-send-button" (click)="sendShareViaEmail()" expand="full">
+      {{'news.send_share_via_email' | translate}}
+    </ion-button>
+    <div class="custom-newsitem" *ngIf="newsInfo">
+      <ion-item>
+        <ion-input class="custom-toemail-input" [(ngModel)]="toEmails" placeholder="***@***.com, ***@***.com">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <p class="custom-title">{{newsInfo.title}}</p>
+      </ion-item>
+      <ion-item *ngIf="newsInfo.newsImage || newsInfo.newsVideo">
+        <ion-slides class="custom-slides" [pager]="newsInfo.newsImage && newsInfo.newsVideo ? 'true' : 'false'" [options]="slideOpts">
+          <ion-slide *ngIf="newsInfo.newsImage">
+            <div class="custom-newsimage" [ngStyle]="{'background-image': 'url(' + newsInfo.newsImage + ')'}"
+              (click)="mediaService.openPhotoViewModal(newsInfo.newsImage)">
+            </div>
+          </ion-slide>
+          <ion-slide *ngIf="newsInfo.newsVideo">
+            <div class="custom-newsvideo"
+              [ngStyle]="{'background-image': 'url(' + settingService.selfie_background + ')'}">
+              <ion-icon name="play-circle" (click)="mediaService.openVideoModal(newsInfo.newsVideo)">
+              </ion-icon>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </ion-item>
+      <ion-item>
+        <p class="custom-content">
+          {{newsInfo.content}}
+        </p>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

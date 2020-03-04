@@ -1,0 +1,43 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <div>
+      <label class="custom-label">
+        {{'share.title' | translate | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="custom-common-grid">
+    <ion-row class="custom-business" (click)="goAddNewShare('business')">
+      <ion-col>
+        <ion-ripple-effect></ion-ripple-effect> {{'news.business' | translate}}
+      </ion-col>
+    </ion-row>
+    <ion-row class="custom-lady" (click)="goAddNewShare('lady')">
+      <ion-col>
+        <ion-ripple-effect></ion-ripple-effect> {{'news.lady' | translate}}
+      </ion-col>
+    </ion-row>
+    <ion-row class="custom-agroecology" (click)="goAddNewShare('agroecology')">
+      <ion-col>
+        <ion-ripple-effect></ion-ripple-effect>{{'news.agroecology' | translate}}
+      </ion-col>
+    </ion-row>
+    <ion-row class="custom-culture" (click)="goAddNewShare('culture')">
+      <ion-col>
+        <ion-ripple-effect></ion-ripple-effect> {{'news.culture' | translate}}
+      </ion-col>
+    </ion-row>
+    <ion-row class="custom-kids" (click)="goAddNewShare('kids')">
+      <ion-col>
+        <ion-ripple-effect></ion-ripple-effect> {{'news.kids' | translate}}
+      </ion-col>
+    </ion-row>
+    <ion-row class="custom-sciences" (click)="goAddNewShare('sciences')">
+      <ion-col>
+        <ion-ripple-effect></ion-ripple-effect> {{'news.sciences' | translate}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

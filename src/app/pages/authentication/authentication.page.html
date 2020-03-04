@@ -1,0 +1,24 @@
+<ion-content>
+  <div class="custom-bg">
+    <ion-grid>
+      <ion-row class="custom-logo">
+        <ion-col size="12">
+          <ion-img src="../../../assets/png/logo_label.png"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-button-row">
+        <ion-col size="12">
+          <!-- <ion-button class="custom-auth-button custom-signin-button " shape="round" (click)="doFBLogin()">
+            {{"facebook login" | translate | uppercase}}
+          </ion-button> -->
+          <ion-button class="custom-auth-button custom-fb-button" shape="round" (click)="goLoginPage()">
+            {{"sign in" | translate | uppercase}}
+          </ion-button>
+          <button class="custom-ca-account" (click)="goSignupPage()">
+            {{'create an account' | translate }}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

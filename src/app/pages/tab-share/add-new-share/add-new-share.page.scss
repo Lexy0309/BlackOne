@@ -1,0 +1,84 @@
+ion-content {
+	.custom-add-share-container {
+		margin: 20px 10px;
+		height: calc(100% - 40px);
+		display: flex;
+		flex-direction: column;
+		ion-item {
+			--border-style: none;
+		}
+		.custom-add-share-title {
+			height: 72px;
+			margin-bottom: 20px;
+			ion-input {
+				height: 72px;
+				font-size: 18px;
+			}
+		}
+		.custom-add-share-content {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			.custom-add-share-content-body {
+				display: flex;
+				flex: 1;
+				.custom-label-remain {
+					position: absolute;
+					bottom: 0px;
+					right: 10px;
+					font-size: 10px;
+					color: #ccc;
+				}
+				ion-textarea {
+					font-size: 18px;
+					height: 100%;
+					padding: 10px 0;
+				}
+			}
+			.custom-add-share-content-footer {
+				height: 44px;
+				--padding-start: 0px;
+				--padding-end: 0px;
+				--padding-top: 0px;
+				--padding-bottom: 0px;
+				--inner-padding-end: 0px;
+				.custom-flex1 {
+					flex: 1;
+					height: 100%;
+					display: flex;
+					flex-flow: column-reverse;
+					align-items: center;
+					position: relative;
+					#closeIcon {
+						position: absolute;
+						right: 5px;
+						top: 5px;
+						z-index: 2;
+						font-size: 20px;
+					}
+					ion-icon,
+					p {
+						flex: 1;
+					}
+					p {
+						line-height: 2.4;
+						font-size: 18px;
+						color: white;
+						margin: 0px;
+						padding: 0px;
+					}
+					.custom-news-image {
+						width: 100%;
+						background-position: center center;
+						background-size: cover;
+						height: 48px;
+					}
+				}
+				button {
+					flex: 1;
+					height: 100%;
+				}
+			}
+		}
+	}
+}

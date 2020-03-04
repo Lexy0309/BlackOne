@@ -1,0 +1,52 @@
+ion-content {
+	.custom-bg {
+		background-image: url("/assets/png/bg.png");
+		height: 100%;
+	}
+	ion-grid {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		ion-row {
+			flex: 1;
+		}
+		.custom-logo {
+			align-items: flex-end;
+			ion-img {
+				width: 296px;
+				height: 91px;
+				display: block;
+				margin: auto auto 30px auto;
+			}
+		}
+		.custom-button-row {
+			.custom-auth-button {
+				display: block;
+				margin: auto auto 20px auto;
+				width: 226px;
+				height: 50px;
+			}
+			.custom-fb-button {
+				--background: #3b5998;
+				--color: #fff;
+				font-family: Roboto;
+			}
+			.custom-signin-button {
+				--background: #fff;
+				--color: #3b5998;
+				--border-style: solid;
+				--border-color: #3b5998;
+				--border-width: 0.5px;
+			}
+			.custom-ca-account {
+				display: block;
+				margin: 60px auto auto auto;
+				color: black;
+				font-size: 15px;
+				font-weight: 500;
+				background: transparent;
+				padding: 10px;
+			}
+		}
+	}
+}

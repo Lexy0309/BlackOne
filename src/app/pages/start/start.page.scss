@@ -1,0 +1,32 @@
+ion-content {
+  .custom-bg {
+    background-image: url("/assets/png/bg.png");
+    height: 100%;
+  }
+  ion-grid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    ion-row {
+      flex: 1;
+    }
+    .custom-logo {
+      align-items: flex-end;
+      ion-img {
+        width: 296px;
+        height: 91px;
+        display: block;
+        margin: auto;
+      }
+    }
+    .custom-button {
+      ion-button {
+        display: block;
+        margin: auto;
+        margin-top: 50px;
+        width: 120px;
+        --background: black;
+      }
+    }
+  }
+}

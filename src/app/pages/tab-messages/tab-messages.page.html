@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <label class="custom-label white-color">
+        {{'messages.title' | translate | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="buddylist.length == 0 && isLoadedAllBuddies == false">
+    <app-people-skeleton-item *ngFor="let item of blankItems">
+    </app-people-skeleton-item>
+  </div>
+  <div *ngIf="buddylist.length > 0">
+    <ion-card *ngFor="let buddy of buddylist" (click)="goforChat(buddy)"
+      [ngClass]="myProfile.uid == buddy.uid ? 'hiddenDiv':''" class="custom-card-message">
+      <ion-card-content class="custom-card-content">
+        <ion-item>
+          <ion-avatar class="friendImage" slot="start">
+            <!-- <ion-img [src]="buddy.photoURL"></ion-img> -->
+            <ion-img *ngIf="buddy.photoURL" [src]="buddy.photoURL"></ion-img>
+            <ion-img *ngIf="!buddy.photoURL" [src]="settingService.default_avatar"></ion-img>
+            <span class="onlineoffline_icon online-background"></span>
+          </ion-avatar>
+          <div class="friendMessage">
+            <div>
+              <ion-label class="friendName">{{buddy.name}}</ion-label>
+            </div>
+            <div>
+              <ion-label class="lastMessage">{{buddy.lastmessage}}</ion-label>
+            </div>
+          </div>
+          <ion-icon *ngIf="buddy.newMessage" class="message_badge"></ion-icon>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

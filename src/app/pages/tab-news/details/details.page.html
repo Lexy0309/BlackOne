@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar" [ngClass]="'custom-color-toolbar-' + newsType">
+    <div>
+      <button class="backclass" (click)="goNewsList()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        {{'news.title' | translate}} {{newsTypeInfo.header_title | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="custom-newsitem">
+      <ion-item>
+        <ion-avatar class="custom-avatar">
+          <!-- <img [src]="userInfo.photoURL" /> -->
+          <ion-img *ngIf="userInfo.photoURL" [src]="userInfo.photoURL"
+            (click)="mediaService.openPhotoViewModal(userInfo.photoURL)"></ion-img>
+          <ion-img *ngIf="!userInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+        </ion-avatar>
+        <ion-label class="custom-username">
+          {{userInfo.name}}
+        </ion-label>
+        <ion-label class="custom-timestamp">
+          {{timestamp | relativeTime}}
+          <!-- {{settingService.getDateFromModel(newsInfo.timestamp) | relativeTime }} -->
+        </ion-label>
+        <ion-icon *ngIf="!isNewsOwner" class="custom-icon custom-icon-size18"
+          [ngClass]="warning_selected ? 'ci_waring_selected' : 'ci_waring'" (click)="onShowReportDialog()">
+        </ion-icon>
+        <ion-icon *ngIf="isNewsOwner" class="ci_close_selected custom-icon custom-icon-size18"
+          (click)="onShowDeleteDialog()">
+        </ion-icon>
+      </ion-item>
+      <ion-item>
+        <p class="custom-title">{{newsInfo.title}}</p>
+      </ion-item>
+      <ion-item *ngIf="newsInfo.newsImage || newsInfo.newsVideo">
+        <ion-slides class="custom-slides" [pager]="newsInfo.newsImage && newsInfo.newsVideo ? 'true' : 'false'"
+          [options]="slideOpts">
+          <ion-slide *ngIf="newsInfo.newsImage">
+            <div class="custom-newsimage" [ngStyle]="{'background-image': 'url(' + newsInfo.newsImage + ')'}"
+              (click)="mediaService.openPhotoViewModal(newsInfo.newsImage)">
+            </div>
+          </ion-slide>
+          <ion-slide *ngIf="newsInfo.newsVideo">
+            <div class="custom-newsvideo"
+              [ngStyle]="{'background-image': 'url(' + settingService.selfie_background + ')'}">
+              <ion-icon name="play-circle" (click)="mediaService.openVideoModal(newsInfo.newsVideo)">
+              </ion-icon>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </ion-item>
+      <ion-item>
+        <p class="custom-content">
+          {{newsInfo.content}}
+        </p>
+      </ion-item>
+      <ion-item class="custom-actiongroup">
+        <div class="custom-divgroup">
+          <div class="custom-divitem" (click)="sharing(newsInfo)">
+            <ion-icon class="ci_share custom-icon custom-icon-size24"></ion-icon>
+          </div>
+          <div class="custom-divitem">
+            <ion-label>{{newsComments.length}}</ion-label>
+            <ion-icon class="ci_comment custom-icon custom-icon-size24"></ion-icon>
+          </div>
+          <div class="custom-divitem" (click)="postLike()">
+            <ion-label>{{newsInfo.likeCount}}</ion-label>
+            <ion-icon class="custom-icon custom-icon-size24" [ngClass]="isLike ? 'ci_like_selected' : 'ci_like'">
+            </ion-icon>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-textarea rows="3" placeholder="{{'news.say_something' | translate}}" maxlength="500" [(ngModel)]="comment">
+          <ion-label class="custom-lbremain">{{500-comment.length}} {{'news.remaining' | translate}}</ion-label>
+          <ion-button (click)="postComment()">{{'news.publish' | translate}}</ion-button>
+        </ion-textarea>
+      </ion-item>
+    </div>
+
+    <div class="custom-commentitem">
+      <div *ngIf="!isLoading">
+        <hr *ngIf="newsComments.length == 0" />
+        <div *ngFor="let commentItem of newsComments" class="feed-item-container">
+          <div class="feed-avatar-container">
+            <ion-avatar class="avatar" slot="start">
+              <img [src]="commentItem.userInfo.photoURL">
+            </ion-avatar>
+          </div>
+          <div class="feed-content-container">
+            <ion-label class="lb_title">
+              {{commentItem.userInfo.name}}
+              <label class="custom-commenttime">
+                {{settingService.getDateFromModel(commentItem.commentInfo.timestamp) | relativeTime }}
+              </label>
+            </ion-label>
+            <ion-label class="lb_description" text-wrap detail="true">
+              {{commentItem.commentInfo.comment}}
+            </ion-label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+
+<div *ngIf="isShowReportDialog" class="custom-alert">
+  <div class="custom-container">
+    <div class="custom-alert-dialog">
+      <div class="title">
+        <ion-label>{{'message.report' | translate}}</ion-label>
+      </div>
+      <div class="actionbutton">
+        <ion-icon class="ci_cancel custom-icon custom-icon-size36" (click)="onCancelReport()"></ion-icon>
+        <ion-icon class="ci_confirm custom-icon custom-icon-size36" (click)="onConfirmReport()"></ion-icon>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isShowDeleteDialog" class="custom-alert">
+  <div class="custom-container">
+    <div class="custom-alert-dialog">
+      <div class="title">
+        <ion-label>{{'message.delete_publish' | translate}}</ion-label>
+      </div>
+      <div class="actionbutton">
+        <ion-icon class="ci_cancel custom-icon custom-icon-size36" (click)="onCancelDelete()"></ion-icon>
+        <ion-icon class="ci_confirm custom-icon custom-icon-size36" (click)="onConfirmDelete()"></ion-icon>
+      </div>
+    </div>
+  </div>
+</div>

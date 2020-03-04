@@ -1,0 +1,75 @@
+<ion-content>
+  <button *ngIf="isIosPlatform" class="backclass" (click)="goBack()">
+    <ion-icon class="left_arrow_black"></ion-icon>
+  </button>
+  <div class="custom-bg-dot"></div>
+  <ion-grid class="custom-iongrid-signup">
+    <ion-row class="custom-header">
+      <ion-col class="custom-buttongrp" size="10" offset="1">
+        <button class="activated">
+          {{"signup" | translate}}
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <form class="custom-body" [formGroup]="validate_signupform" (ngSubmit)="onSingupSubmit()">
+      <ion-row class="custom-formsignin">
+        <ion-col size="12" offset="0">
+          <div class="custom-form-input">
+            <ion-input type="text" formControlName="name" placeholder="{{'name' | translate}}" name="name"
+              (keypress)="userTypingSingin($event)">
+            </ion-input>
+          </div>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.name">
+              <div class="error-message"
+                *ngIf="validate_signupform.get('name').hasError(validation.type) && (validate_signupform.get('name').dirty || validate_signupform.get('name').touched)">
+                <ion-label>{{ validation.message }}</ion-label>
+              </div>
+            </ng-container>
+          </div>
+          <div class="custom-form-input">
+            <ion-input type="text" formControlName="email" placeholder="{{'email' | translate}}" name="email"
+              (keypress)="userTypingSingin($event)">
+            </ion-input>
+          </div>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <div class="error-message"
+                *ngIf="validate_signupform.get('email').hasError(validation.type) && (validate_signupform.get('email').dirty || validate_signupform.get('email').touched)">
+                <ion-label>{{ validation.message }}</ion-label>
+              </div>
+            </ng-container>
+          </div>
+          <div class="custom-form-input">
+            <ion-input formControlName="password" placeholder="{{'password' | translate}}" name="password"
+              (keypress)="userTypingSingin($event)" [type]="passwordType">
+            </ion-input>
+            <ion-icon [name]="passwordShown === true ? 'eye-off' : 'eye'"
+              [color]="passwordShown === true ? 'dark' : 'gray'" (click)="togglePassword()">
+            </ion-icon>
+          </div>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-message"
+                *ngIf="validate_signupform.get('password').hasError(validation.type) && (validate_signupform.get('password').dirty || validate_signupform.get('password').touched)">
+                <ion-label>{{ validation.message }}</ion-label>
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-footer">
+        <ion-col size="12">
+          <ion-button type="submit" [disabled]="isAuthSignin" class="custom-loginbtn">
+            <ion-spinner name="bubbles" *ngIf="isAuthSignin"></ion-spinner>
+            {{'continue' | translate}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+
+
+  </ion-grid>
+</ion-content>

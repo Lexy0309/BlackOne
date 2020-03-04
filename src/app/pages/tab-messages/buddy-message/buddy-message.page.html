@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <button class="backclass" (click)="goback()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        <label>{{ 'messages.title' | translate | uppercase}}</label>
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #IonContent fullscreen="true" [scrollEvents]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="bubbles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="isLoading" style="text-align: center;">
+    <ion-spinner name="bubbles"></ion-spinner>
+  </div>
+
+  <ion-list *ngIf="!isLoading">
+    <div class="custom-row" *ngFor="let chat of allmessages; let i = index; let last = last; ">
+      <ion-row *ngIf="chat.sentby === buddyInfo.uid">
+        <ion-col class="right" no-padding
+          [ngClass]="{'clubbed':((allmessages[i+1] && allmessages[i+1].sentby != chat.sentby)|| !allmessages[i+1])}">
+          <div class="imageAvatarRight">
+            <div class="imageAvatarBottom">
+              <ion-avatar class="avatar"
+                [ngClass]="(allmessages[i+1] && allmessages[i+1].sentby == chat.sentby)?'hidden':''">
+                <!-- <ion-img class="userAvatar" [src]="buddyInfo.photoURL"></ion-img> -->
+                <ion-img class="userAvatar" *ngIf="buddyInfo.photoURL" [src]="buddyInfo.photoURL"></ion-img>
+                <ion-img class="userAvatar" *ngIf="!buddyInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+              </ion-avatar>
+            </div>
+            <ion-label>
+              <div class="chatDiv" [ngClass]="{'sharper':((allmessages[i+1] && allmessages[i+1].sentby == chat.sentby) && 
+                  (allmessages[i-1] && allmessages[i-1].sentby == chat.sentby)),
+                  'sharper-top':(allmessages[i-1] && allmessages[i-1].sentby == chat.sentby),
+                  'sharper-bottom':(allmessages[i+1] && allmessages[i+1].sentby == chat.sentby)}">
+                <p text-wrap padding [ngClass]="chat.specialMessage ? 'specialP' : ''">
+                  {{chat.message}}</p>
+              </div>
+            </ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="chat.sentby != buddyInfo.uid">
+        <ion-col class="left" no-padding
+          [ngClass]="{'clubbed':((allmessages[i+1] && allmessages[i+1].sentby != chat.sentby)|| !allmessages[i+1])}">
+          <div class="imageAvatarLeft">
+            <ion-label>
+              <div class="chatDiv" [ngClass]="{'sharper':((allmessages[i+1] && allmessages[i+1].sentby == chat.sentby) && 
+                  (allmessages[i-1] && allmessages[i-1].sentby == chat.sentby)),
+                  'sharper-top':(allmessages[i-1] && allmessages[i-1].sentby == chat.sentby),
+                  'sharper-bottom':(allmessages[i+1] && allmessages[i+1].sentby == chat.sentby)}">
+
+                <p text-wrap padding [ngClass]="chat.specialMessage ? 'specialP' : ''">
+                  {{chat.message}}</p>
+              </div>
+            </ion-label>
+            <div class="imageAvatarBottom">
+              <ion-avatar class="avatar"
+                [ngClass]="(allmessages[i+1] && allmessages[i+1].sentby == chat.sentby)?'hidden':''">
+                <!-- <ion-img class="userAvatar" [src]="myProfile.photoURL"></ion-img> -->
+                <ion-img class="userAvatar" *ngIf="myProfile.photoURL" [src]="myProfile.photoURL"></ion-img>
+                <ion-img class="userAvatar" *ngIf="!myProfile.photoURL" [src]="settingService.default_avatar"></ion-img>
+              </ion-avatar>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="((allmessages[i+1] && allmessages[i+1].sentby != chat.sentby)|| !allmessages[i+1])">
+        <ion-col>
+          <ion-text>{{settingService.getDateFromModel(chat.timestamp) | relativeTime}}</ion-text>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer translucent>
+  <ion-toolbar>
+    <ion-item>
+      <ion-textarea (ionInput)="userTyping($event)" wrap="hard" clear-on-edit="true" class="input-box" type="text"
+        placeholder="{{'message.chat_placeholder' | translate}}" [(ngModel)]="new_message">
+      </ion-textarea>
+      <ion-icon class="ci_send custom-icon custom-icon-size24" (click)="sendMsg()"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

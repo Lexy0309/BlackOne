@@ -1,0 +1,7 @@
+{
+  "name": "OkaneApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

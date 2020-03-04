@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar" [ngClass]="'custom-color-toolbar-' + newsType">
+    <div>
+      <button class="backclass" (click)="goBack()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        {{'share.title' | translate | uppercase}} - {{newsTypeInfo.header_title}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [ngClass]="'custom-color-content-' + newsType">
+  <div class="custom-add-share-container">
+    <div class="custom-add-share-title">
+      <ion-item>
+        <ion-input placeholder="{{'share.enter_title' | translate}}" [(ngModel)]="news_title">
+        </ion-input>
+      </ion-item>
+    </div>
+    <div class="custom-add-share-content">
+      <ion-item class="custom-add-share-content-body">
+        <ion-textarea placeholder="{{'share.write_something' | translate}}" maxlength="600" [(ngModel)]="news_content">
+        </ion-textarea>
+        <ion-label class="custom-label-remain">
+          {{600 - news_content.trim().length}} {{'share.characters' | translate}}
+        </ion-label>
+      </ion-item>
+      <ion-item class="custom-add-share-content-footer">
+        <div class="custom-flex1" [ngClass]="'custom-color-share-bottom1-' + newsType">
+          <div *ngIf="news_img" [ngStyle]="{'background-image': 'url(' + news_img + ')'}" class="custom-news-image"
+            (click)="selectImage()"></div>
+          <ion-icon *ngIf="news_img" name="close-circle" id="closeIcon"
+            [ngStyle]="{'color': newsTypeInfo.bottom_btncolor1}" (click)="deleteImage()"></ion-icon>
+          <ion-icon *ngIf="!news_img" class="ci_camera custom-icon" (click)="selectImage()"></ion-icon>
+        </div>
+
+        <div class="custom-flex1" [ngClass]="'custom-color-share-bottom2-' + newsType">
+          <div *ngIf="news_video" class="custom-news-image" (click)="captureVideo()"
+            [ngStyle]="{'background-image': 'url(' + settingService.selfie_background + ')'}">
+            <!-- <div *ngIf="news_video" [ngStyle]="{'background-image': 'url(' + settingService.selfi + ')'}" -->
+            <!-- class="custom-news-image" (click)="captureVideo()"> -->
+          </div>
+          <ion-icon *ngIf="news_video" name="close-circle" id="closeIcon"
+            [ngStyle]="{'color': newsTypeInfo.bottom_btncolor1}" (click)="deleteVideo()"></ion-icon>
+          <ion-icon *ngIf="!news_video" class="ci_video custom-icon" (click)="captureVideo()"></ion-icon>
+        </div>
+
+        <div class="custom-flex1" [ngClass]="'custom-color-share-bottom3-' + newsType" (click)="sendNews()">
+          <p>{{'share.to_send' | translate}}</p>
+        </div>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>
+<div *ngIf="mediaService.isUploading" class="custom-news-uploading-alert">
+  <div class="custom-container">
+    <div class="custom-alert-edit-dialog">
+      <div class="title">
+        <ion-label>{{uploadingStateStr}}</ion-label>
+      </div>
+    </div>
+  </div>
+</div>

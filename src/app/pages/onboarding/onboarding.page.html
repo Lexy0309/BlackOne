@@ -1,0 +1,25 @@
+<ion-content class="intro">
+  <ion-slides #slides pager="true" [options]="slide_opts" loop="true">
+
+    <ion-slide class="custom-slide" *ngFor="let item of slideData">
+      <div class="custom-content-container" [ngStyle]="{'background-image': 'url(' + item.img + selectedLanguage + '.png)'}">
+        <!-- <div class="custom-logo-container">
+          <div>
+            <ion-img class="custom-logo" [src]="item.logo"></ion-img>
+          </div>
+          <div class="custom-content1">
+            <ion-label>{{item.title | translate}}</ion-label>
+            <ion-img class="custom-dot" [src]="dot_img"></ion-img>
+          </div>
+        </div> -->
+      </div>
+      <div class="custom-footer-container">
+        <ion-label>{{item.description | translate}}</ion-label>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <button (click)="skip()" id="skip">{{"skip" | translate}}</button>
+  <button (click)="next()" id="next">{{"next" | translate}}</button>
+
+</ion-content>

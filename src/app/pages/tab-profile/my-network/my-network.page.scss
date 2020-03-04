@@ -1,0 +1,75 @@
+ion-header {
+	ion-toolbar {
+		--background: black;
+		color: white;
+	}
+}
+ion-content {
+	height: 100%;
+	--background: #f7f7fa;
+	.topclass {
+		width: 100%;
+		ion-item {
+			--min-height: 67px;
+			--inner-padding-end: 0px;
+			--padding-start: 0px;
+			--border-style: none;
+			.buttongroupclass {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+				.buttonclass {
+					flex: auto;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					width: 50%;
+				}
+				.dividelineclass {
+					border-right: 1px solid black;
+					height: 40px;
+				}
+				.belowpclass {
+					font-size: 16px;
+					font-weight: 500;
+					color: #c8bab3;
+					font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+						"Helvetica Neue", sans-serif;
+				}
+			}
+		}
+	}
+	.segmentActivate {
+		color: black !important;
+	}
+
+	.custom-card {
+		margin: 12px;
+		.custom-card-content {
+			--padding-start: 0px;
+			padding: 0px;
+			height: 61px;
+			ion-item {
+				height: 100%;
+				--border-style: none;
+				background: white;
+				display: flex;
+				ion-avatar {
+					width: 48px;
+					height: 48px;
+				}
+				ion-label {
+					margin-left: 10px;
+				}
+				ion-button {
+					--background: black;
+					--background-activated: #d14931;
+					width: 80px;
+					height: 32px;
+					font-size: 11px;
+				}
+			}
+		}
+	}
+}

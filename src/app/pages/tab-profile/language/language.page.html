@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <button class="backclass" (click)="goBack()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        {{'setting.language' | translate | uppercase}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-label>{{"setting.select_a_language" | translate}}</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>{{"setting.english" | translate}}</ion-label>
+        <ion-radio slot="end" value="en" (ionSelect)="selectLanguage('en')" [checked]="selectedLanguage == 'en'">
+        </ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{"setting.france" | translate}}</ion-label>
+        <ion-radio slot="end" value="fr" (ionSelect)="selectLanguage('fr')" [checked]="selectedLanguage == 'fr'">
+        </ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

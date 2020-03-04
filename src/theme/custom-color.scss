@@ -1,0 +1,163 @@
+// setting toolbar background by newsType
+.custom-color-toolbar-business,
+.custom-color-button-activated-business,
+.custom-color-button-default-activated-business {
+	--background: #41689e;
+	color: #41689e;
+	border-bottom-color: #41689e;
+}
+
+.custom-color-toolbar-lady,
+.custom-color-button-activated-lady,
+.custom-color-button-default-activated-lady {
+	--background: #4e9084;
+	color: #4e9084;
+	border-bottom-color: #4e9084;
+}
+
+.custom-color-toolbar-agroecology,
+.custom-color-button-activated-agroecology,
+.custom-color-button-default-activated-agroecology {
+	--background: #f68948;
+	color: #f68948;
+	border-bottom-color: #f68948;
+}
+
+.custom-color-toolbar-culture,
+.custom-color-button-activated-culture,
+.custom-color-button-default-activated-culture {
+	--background: #ff7063;
+	color: #ff7063;
+	border-bottom-color: #ff7063;
+}
+
+.custom-color-toolbar-kids,
+.custom-color-button-activated-kids,
+.custom-color-button-default-activated-kids {
+	--background: #e84e6f;
+	color: #e84e6f;
+	border-bottom-color: #e84e6f;
+}
+
+.custom-color-toolbar-sciences,
+.custom-color-button-activated-sciences,
+.custom-color-button-default-activated-sciences {
+	--background: #9b344a;
+	color: #9b344a;
+	border-bottom-color: #9b344a;
+}
+
+.custom-color-button-activated-business,
+.custom-color-button-activated-kids,
+.custom-color-button-activated-agroecology,
+.custom-color-button-activated-culture,
+.custom-color-button-activated-lady,
+.custom-color-button-activated-sciences {
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+}
+
+.custom-color-button-inactivated {
+	color: black;
+	border-bottom: 0px solid white;
+}
+
+// news's badge background
+.custom-color-badge-business {
+	--background: #41689e;
+}
+.custom-color-badge-lady {
+	--background: #4e9084;
+}
+.custom-color-badge-agroecology {
+	--background: #f68948;
+}
+.custom-color-badge-culture {
+	--background: #ff7063;
+}
+.custom-color-badge-kids {
+	--background: #e84e6f;
+}
+.custom-color-badge-sciences {
+	--background: #9b344a;
+}
+
+// setting Add new Share style
+.custom-color-content-business {
+	--background: #c8d2da;
+}
+.custom-color-content-lady {
+	--background: #a2cec8;
+}
+.custom-color-content-agroecology {
+	--background: #f6d4a6;
+}
+.custom-color-content-culture {
+	--background: #f7d5c9;
+}
+.custom-color-content-kids {
+	--background: #f5bac7;
+}
+.custom-color-content-sciences {
+	--background: #cc99a4;
+}
+// setting Add new share bottom style
+.custom-color-share-bottom1-business {
+	background: #6e8cb5;
+}
+.custom-color-share-bottom2-business {
+	background: #809abe;
+}
+.custom-color-share-bottom3-business {
+	background: #99adca;
+}
+
+.custom-color-share-bottom1-lady {
+	background: #679585;
+}
+.custom-color-share-bottom2-lady {
+	background: #8da693;
+}
+.custom-color-share-bottom3-lady {
+	background: #a7b19d;
+}
+
+.custom-color-share-bottom1-agroecology {
+	background: #f09b4d;
+}
+.custom-color-share-bottom2-agroecology {
+	background: #f4b866;
+}
+.custom-color-share-bottom3-agroecology {
+	background: #f8ce74;
+}
+
+.custom-color-share-bottom1-culture {
+	background: #ec836b;
+}
+.custom-color-share-bottom2-culture {
+	background: #f1a382;
+}
+.custom-color-share-bottom3-culture {
+	background: #f4b990;
+}
+
+.custom-color-share-bottom1-kids {
+	background: #e96876;
+}
+.custom-color-share-bottom2-kids {
+	background: #ed8d8d;
+}
+.custom-color-share-bottom3-kids {
+	background: #f1a69c;
+}
+
+.custom-color-share-bottom1-sciences {
+	background: #9d484f;
+}
+.custom-color-share-bottom2-sciences {
+	background: #aa706a;
+}
+.custom-color-share-bottom3-sciences {
+	background: #bf9490;
+}

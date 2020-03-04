@@ -1,0 +1,68 @@
+ion-content {
+	height: 100%;
+	--background: #f7f7fa;
+
+	.dialogClass {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	.bodyclass {
+		text-align: center;
+		width: 100%;
+
+		.topclass {
+			width: 100%;
+			padding: 0 0 40px 0;
+			ion-label {
+				color: #29313e;
+				font-size: 20px;
+				font-weight: 600;
+			}
+		}
+		ion-item {
+			margin: 0 25px;
+			--border-style: none;
+			> div.buttongroupclass {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				height: 67px;
+				p {
+					width: 100%;
+					text-align: center;
+					margin: 1px 0px;
+					// color: #C8BAB3;
+				}
+				ion-icon {
+					font-size: 25px;
+					text-align: center;
+					display: block;
+				}
+				.countclass {
+					font-size: 20px;
+				}
+				.belowpclass {
+					font-size: 16px;
+					font-weight: 500;
+					color: #c8bab3;
+				}
+				.dividelineclass {
+					border-right: 1px solid #eee;
+					height: 35px;
+				}
+				.buttonclass {
+					flex: auto;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		}
+	}
+	.selectedBtn {
+		color: #d14931 !important;
+	}
+}

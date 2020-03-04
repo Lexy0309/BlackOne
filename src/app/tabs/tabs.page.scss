@@ -1,0 +1,19 @@
+ion-tab-bar {
+	ion-tab-button {
+		display: flex;
+		ion-label {
+			flex: 1;
+			font-size: 6px;
+			color: #cccccc;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		ion-icon {
+      flex: 1;
+    }
+    .tab-icon {      
+      margin-top: 0px;
+    }
+	}
+}

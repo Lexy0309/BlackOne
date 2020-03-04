@@ -1,0 +1,77 @@
+ion-header {
+  ion-toolbar {
+    --color: white;
+  }
+  
+}
+
+ion-content {
+}
+
+ion-footer {
+  .custom-newstype-toolbar {
+    --min-height: 34px!important;
+    max-height: 34px!important;
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    .custom-newstype-group {
+      .custom-button {
+        flex: 1;
+        height: 34px;
+        color: #ffffff66;
+        font-size: 16px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      *:focus {
+        outline: none;
+      }
+      .custom-button-activated {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-width: 0px;
+      }
+      .custom-button-business {
+        background-color: #41689e;
+      }
+      .custom-button-lady {
+        background-color: #4e9084;
+      }
+      .custom-button-agroecology {
+        background-color: #f68948;
+      }
+      .custom-button-culture {
+        background-color: #ff7063;
+      }
+      .custom-button-kids {
+        background-color: #e84e6f;
+      }
+      .custom-button-sciences {
+        background-color: #9b344a;
+      }
+    }
+  }
+}
+
+.centerme {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen-player {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+}

@@ -1,0 +1,200 @@
+// common icons-------------------------------------------------
+ion-icon.custom-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+ion-icon.custom-icon-size24 {
+  width: 24px;
+  height: 24px;
+}
+ion-icon.custom-icon-size36 {
+  width: 36px;
+  height: 36px;
+}
+ion-icon.custom-icon-size52 {
+  width: 52px;
+  height: 52px;
+}
+ion-icon.custom-icon-size18 {
+  width: 18px;
+  height: 18px;
+}
+ion-icon.left_arrow {
+  background-image: url("/assets/icon/common/left_arrow.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+ion-icon.left_arrow_black {
+  background-image: url("/assets/icon/common/left_arrow_black.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+ion-icon.ci_like {
+  background-image: url("/assets/icon/common/like.png");
+}
+ion-icon.ci_like_selected {
+  background-image: url("/assets/icon/common/like_selected.png");
+}
+ion-icon.ci_comment {
+  background-image: url("/assets/icon/common/comment.png");
+}
+ion-icon.ci_share {
+  background-image: url("/assets/icon/common/share.png");
+}
+ion-icon.ci_close {
+  background-image: url("/assets/icon/common/close.png");
+}
+ion-icon.ci_close_selected {
+  background-image: url("/assets/icon/common/close_selected.png");
+}
+ion-icon.ci_warning {
+  background-image: url("/assets/icon/common/warning.png");
+}
+ion-icon.ci_camera {
+  background-image: url("/assets/icon/common/camera.png");
+  width: 33px;
+  height: 21px;
+}
+ion-icon.ci_video {
+  background-image: url("/assets/icon/common/video.png");
+  width: 33px;
+  height: 21px;
+}
+ion-icon.ci_follow {
+  background-image: url("/assets/icon/common/follow.png");
+  width: 40px;
+  height: 40px;
+}
+ion-icon.ci_message {
+  background-image: url("/assets/icon/common/message.png");
+}
+ion-icon.ci_confirm {
+  background-image: url("/assets/icon/common/confirm.png");
+}
+ion-icon.ci_cancel {
+  background-image: url("/assets/icon/common/cancel.png");
+}
+ion-icon.ci_edit {
+  background-image: url("/assets/icon/common/edit.png");
+}
+ion-icon.ci_trash {
+  background-image: url("/assets/icon/common/trash.png");
+}
+ion-icon.ci_waring_selected {
+  background-image: url("/assets/icon/common/warning_selected.png");
+}
+ion-icon.ci_waring {
+  background-image: url("/assets/icon/common/warning.png");
+}
+ion-icon.ci_send {
+  background-image: url("/assets/icon/common/send.png");
+}
+// common icons-------------------------------------------------
+
+// setting icons-------------------------------------------------
+ion-icon.ci_myprofile {
+  background-image: url("/assets/icon/setting/my_profile.png");
+}
+ion-icon.ci_mynetwork {
+  background-image: url("/assets/icon/setting/my_network.png");
+}
+ion-icon.ci_credentials {
+  background-image: url("/assets/icon/setting/my_credential.png");
+}
+ion-icon.ci_language {
+  background-image: url("/assets/icon/setting/language.png");
+}
+ion-icon.ci_share_feedback {
+  background-image: url("/assets/icon/setting/share_feedback.png");
+}
+ion-icon.ci_report_abuse {
+  background-image: url("/assets/icon/setting/report_abuse.png");
+}
+ion-icon.ci_delete_account {
+  background-image: url("/assets/icon/setting/delete_account.png");
+}
+ion-icon.ci_terms_conditions {
+  background-image: url("/assets/icon/setting/terms_conditions.png");
+}
+ion-icon.ci_privacy_policy {
+  background-image: url("/assets/icon/setting/privacy_policy.png");
+}
+ion-icon.ci_aboutus {
+  background-image: url("/assets/icon/setting/aboutus.png");
+}
+ion-icon.ci_license {
+  background-image: url("/assets/icon/setting/license.png");
+}
+ion-icon.ci_logout {
+  background-image: url("/assets/icon/setting/logout.png");
+}
+// setting icons-------------------------------------------------
+
+// tab relation icons-------------------------------------------
+ion-tab-bar {
+  height: 58px;
+  min-height: 58px !important;
+  max-height: 58px !important;
+  --border: 0px !important;
+}
+ion-tab-button {
+  .tab-icon {
+    width: 18px;
+    height: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .tab-icon-dot {
+    width: 4px;
+    height: 4px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  ion-icon.tab-i-dot {
+    background-image: url("/assets/icon/tabicons/inactive.png");
+  }
+  ion-icon.tab-i-news {
+    background-image: url("/assets/icon/tabicons/news_unselect.png");
+  }
+  ion-icon.tab-i-people {
+    background-image: url("/assets/icon/tabicons/people_unselect.png");
+  }
+  ion-icon.tab-i-share {
+    background-image: url("/assets/icon/tabicons/share_unselect.png");
+  }
+  ion-icon.tab-i-profile {
+    background-image: url("/assets/icon/tabicons/profile_unselect.png");
+  }
+  ion-icon.tab-i-messages {
+    background-image: url("/assets/icon/tabicons/messages_unselect.png");
+  }
+}
+ion-tab-button.tab-selected {
+  ion-icon.tab-i-dot {
+    background-image: url("/assets/icon/tabicons/active.png");
+  }
+  ion-icon.tab-i-news {
+    background-image: url("/assets/icon/tabicons/news.png");
+  }
+  ion-icon.tab-i-people {
+    background-image: url("/assets/icon/tabicons/people.png");
+  }
+  ion-icon.tab-i-share {
+    background-image: url("/assets/icon/tabicons/share.png");
+  }
+  ion-icon.tab-i-profile {
+    background-image: url("/assets/icon/tabicons/profile.png");
+  }
+  ion-icon.tab-i-messages {
+    background-image: url("/assets/icon/tabicons/messages.png");
+  }
+  ion-label {
+    color: black !important;
+  }
+}
+// tab relation icons-------------------------------------------

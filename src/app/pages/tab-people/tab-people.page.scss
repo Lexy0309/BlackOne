@@ -1,0 +1,92 @@
+ion-header {
+  // .custom-toolbar {
+  // 	--color: white;
+  // 	--background: black;
+  // }
+
+  .custom-tab {
+    height: 45px;
+    display: flex;
+    align-items: center;
+  }
+}
+ion-content {
+  ion-list {
+    ion-item {
+      height: 102px;
+      --border-style: none;
+      border-bottom: 1px solid #e9e9e9;
+      display: flex;
+      --padding-end: 5px;
+      ion-avatar {
+        width: 71px;
+        height: 71px;
+      }
+      .custom_friendinfo {
+        flex: 1;
+        .custom_displayname {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .custom_followers {
+          font-size: 14px;
+          color: #999999;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+ion-footer {
+  .custom-newstype-toolbar {
+    --min-height: 34px !important;
+    max-height: 34px !important;
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    .custom-newstype-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .custom-button {
+        flex: 1;
+        height: 34px;
+        color: #ffffff66;
+        font-size: 16px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      *:focus {
+        outline: none;
+      }
+      .custom-button-activated {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-width: 0px;
+      }
+      .custom-button-business {
+        background-color: #41689e;
+      }
+      .custom-button-lady {
+        background-color: #4e9084;
+      }
+      .custom-button-agroecology {
+        background-color: #f68948;
+      }
+      .custom-button-culture {
+        background-color: #ff7063;
+      }
+      .custom-button-kids {
+        background-color: #e84e6f;
+      }
+      .custom-button-sciences {
+        background-color: #9b344a;
+      }
+    }
+  }
+}

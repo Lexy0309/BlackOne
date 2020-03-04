@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar" [ngClass]="'custom-color-toolbar-' + newsType">
+    <div>
+      <button class="backclass" (click)="goBack()">
+        <ion-icon class="left_arrow"></ion-icon>
+      </button>
+      <label class="custom-label white-color">
+        {{myProfile.name}}'s {{'news.report_news' | translate}}
+      </label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>

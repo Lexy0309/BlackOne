@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar" [ngClass]="'custom-color-toolbar-' + newsType">
+    <div>
+      <label class="custom-label white-color">
+        {{'news.title' | translate}} - {{'news.' + newsType | translate | uppercase}}
+      </label>
+      <button class="addclass" (click)="goAddNewShare()">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </div>
+  </ion-toolbar>
+
+  <ion-toolbar class="custom-toolbar1">
+    <div>
+      <button class="custom-button"
+        [ngClass]="selectedTab == 'experts' ? 'custom-color-button-activated-' + newsType : 'custom-color-button-inactivated'"
+        (click)="onSegmentTab('experts')">
+        {{'news.experts' | translate}}
+      </button>
+
+      <button class="custom-button"
+        [ngClass]="selectedTab == 'grand' ? 'custom-color-button-activated-' + newsType : 'custom-color-button-inactivated'"
+        (click)="onSegmentTab('grand')">
+        {{'news.grand_public' | translate}}
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="bubbles"
+      refreshingText="waiting...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="allNews.length > 0">
+    <div class="custom-newsitem" *ngFor="let newsItem of allNews">
+      <ion-item>
+        <ion-avatar class="custom-avatar" (click)="viewProfileInfo(newsItem)">
+          <ion-img *ngIf="newsItem.userInfo.photoURL" [src]="newsItem.userInfo.photoURL"></ion-img>
+          <ion-img *ngIf="!newsItem.userInfo.photoURL" [src]="settingService.default_avatar"></ion-img>
+        </ion-avatar>
+        <ion-label class="custom-username" (click)="viewProfileInfo(newsItem)">
+          {{newsItem.userInfo.name}}
+        </ion-label>
+        <ion-label class="custom-timestamp" (click)="viewNewsDetails(newsItem)">
+          {{settingService.getDateFromModel(newsItem.newsInfo.timestamp) | relativeTime }}
+        </ion-label>
+      </ion-item>
+      <ion-item (click)="viewNewsDetails(newsItem)">
+        <p class="custom-title">{{newsItem.newsInfo.title}}</p>
+      </ion-item>
+      <ion-item *ngIf="newsItem.newsInfo.newsImage || newsItem.newsInfo.newsVideo">
+        <ion-slides class="custom-slides"
+          [pager]="newsItem.newsInfo.newsImage && newsItem.newsInfo.newsVideo ? 'true' : 'false'" [options]="slideOpts">
+          <ion-slide *ngIf="newsItem.newsInfo.newsImage">
+            <div class="custom-newsimage" [ngStyle]="{'background-image': 'url(' + newsItem.newsInfo.newsImage + ')'}"
+              (click)="mediaService.openPhotoViewModal(newsItem.newsInfo.newsImage)">
+            </div>
+          </ion-slide>
+          <ion-slide *ngIf="newsItem.newsInfo.newsVideo">
+            <div class="custom-newsvideo"
+              [ngStyle]="{'background-image': 'url(' + settingService.selfie_background + ')'}">
+              <ion-icon name="play-circle" (click)="mediaService.openVideoModal(newsItem.newsInfo.newsVideo)">
+              </ion-icon>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </ion-item>
+      <ion-item (click)="viewNewsDetails(newsItem)">
+        <p class="custom-content">
+          {{settingService.getLimtString(newsItem.newsInfo.content)}}
+        </p>
+      </ion-item>
+      <ion-item class="custom-actiongroup">
+        <div class="custom-divgroup">
+          <div class="custom-divitem" (click)="sharing(newsItem)">
+            <ion-icon class="ci_share custom-icon custom-icon-size24"></ion-icon>
+          </div>
+          <div class="custom-divitem" (click)="viewNewsDetails(newsItem)">
+            <ion-label>{{newsItem.newsInfo.commentCount}}</ion-label>
+            <ion-icon class="ci_comment custom-icon custom-icon-size24"></ion-icon>
+          </div>
+          <div class="custom-divitem" (click)="postLike(newsItem)">
+            <ion-label>{{newsItem.newsInfo.likeCount}}</ion-label>
+            <ion-icon class="custom-icon custom-icon-size24"
+              [ngClass]="newsItem.isLike ? 'ci_like_selected' : 'ci_like'">
+            </ion-icon>
+          </div>
+        </div>
+      </ion-item>
+    </div>
+  </div>
+  <div *ngIf="allNews.length == 0 && isLoadedAllNews == false">
+    <div class="custom-newsitem" *ngFor="let blankItem of blankItems">
+      <app-news-skeleton-item></app-news-skeleton-item>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="0px" (ionInfinite)="loadPreviousData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'message.Loading_more_data' | translate}}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="custom-newstype-toolbar">
+    <div class="custom-newstype-group">
+      <div class="custom-button-business custom-button" (click)="onChangeNewsType('business')"
+        [ngClass]="newsType == 'business' ? 'custom-button-activated':''">
+        <ion-ripple-effect></ion-ripple-effect>B
+      </div>
+      <div class="custom-button-lady custom-button" (click)="onChangeNewsType('lady')"
+        [ngClass]="newsType == 'lady' ? 'custom-button-activated':''">
+        <ion-ripple-effect></ion-ripple-effect>L
+      </div>
+      <div class="custom-button-agroecology custom-button" (click)="onChangeNewsType('agroecology')"
+        [ngClass]="newsType == 'agroecology' ? 'custom-button-activated':''">
+        <ion-ripple-effect></ion-ripple-effect>A
+      </div>
+      <div class="custom-button-culture custom-button" (click)="onChangeNewsType('culture')"
+        [ngClass]="newsType == 'culture' ? 'custom-button-activated':''">
+        <ion-ripple-effect></ion-ripple-effect>C
+      </div>
+      <div class="custom-button-kids custom-button" (click)="onChangeNewsType('kids')"
+        [ngClass]="newsType == 'kids' ? 'custom-button-activated':''">
+        <ion-ripple-effect></ion-ripple-effect>K
+      </div>
+      <div class="custom-button-sciences custom-button" (click)="onChangeNewsType('sciences')"
+        [ngClass]="newsType == 'sciences' ? 'custom-button-activated':''">
+        <ion-ripple-effect></ion-ripple-effect>S
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

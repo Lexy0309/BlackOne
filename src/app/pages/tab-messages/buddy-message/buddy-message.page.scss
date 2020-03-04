@@ -1,0 +1,282 @@
+ion-header {
+	ion-toolbar {
+		--color: white;
+		--background: black;
+	}
+}
+ion-content {
+	--background: white;
+}
+ion-footer {
+	ion-toolbar {
+		--padding-start: 0px;
+		--padding-end: 0px;
+		--padding-top: 0px;
+		--padding-bottom: 0px;
+		ion-item {
+			--background: transparent;
+			--highlight-background: transparent;
+			ion-textarea {
+				--min-height: 60px;
+				height: 60px;
+				font-size: 14px;
+			}
+			ion-icon {
+				margin: 10px;
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+ion-list {
+	padding: 0px;
+	background: transparent;
+	padding-top: 20px;
+	margin: 0px;
+	// height: 97%;
+	.custom-row {
+		margin-bottom: 5px;
+	}
+}
+ion-item {
+	--border-style: none;
+}
+
+.specialP {
+	color: #e27a36;
+	font-size: 12px;
+	padding: 2px 5px;
+}
+.imageAvatarRight {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	.imageAvatarBottom {
+		max-width: 214px;
+		align-items: flex-end;
+		display: flex;
+		border-radius: 50%;
+		// background: #5B2573;
+		position: relative;
+		top: 6px;
+		z-index: 11;
+	}
+	.avatar {
+		width: 50px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.imageAvatarBottomIcon {
+		width: 12px;
+		height: 12px;
+		border-radius: 50px;
+		background: var(--ion-color-tertiary-tint);
+		position: absolute;
+		top: 17%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		right: 10.1%;
+		//   color: white;
+	}
+	.chatDiv {
+		text-align: justify;
+		position: relative;
+		background: #E9EBEF;
+		border-radius: 20px;
+		border-bottom-left-radius: 0;
+		// margin-bottom: 14px;
+		// min-width: 72vw;
+		max-width: 72vw;
+		box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+	}
+	.userAvatar {
+		width: 28px;
+		height: 28px;
+	}
+	.sharper {
+		&.chatDiv {
+			// border-radius: 0;
+		}
+	}
+	.sharper-bottom {
+		&.chatDiv {
+			// border-bottom-left-radius: 0;
+			// border-bottom-right-radius: 0;
+		}
+	}
+	.sharper-top {
+		&.chatDiv {
+			// border-top-left-radius: 0;
+			// border-top-right-radius: 0;
+		}
+	}
+}
+ion-thumbnail {
+	// --border-radius: 12px;
+	width: 100%;
+	height: 100%;
+}
+.imageAvatarLeft {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	.imageAvatarBottom {
+		max-width: 214px;
+		align-items: flex-end;
+		display: flex;
+		border-radius: 50%;
+		// background: #5B2573;
+		position: relative;
+		top: 6px;
+		z-index: 11;
+
+		flex-direction: column-reverse;
+		ion-spinner {
+			position: absolute;
+			top: -10px;
+			left: 12px;
+		}
+	}
+	.avatar {
+		width: 50px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.imageAvatarBottomIcon {
+		width: 12px;
+		height: 12px;
+		border-radius: 50px;
+		background: var(--ion-color-tertiary-tint);
+		position: absolute;
+		top: 17%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		right: 10.1%;
+		//   color: white;
+	}
+	.chatDiv {
+		text-align: left;
+		position: relative;
+		background: #a6cfed;
+		border-radius: 20px;
+		border-bottom-right-radius: 0;
+		// margin-bottom: 14px;
+		// min-width: 72vw;
+		max-width: 72vw;
+		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+	}
+	.userAvatar {
+		width: 28px;
+		height: 28px;
+	}
+	.sharper {
+		&.chatDiv {
+			// border-radius: 0;
+		}
+	}
+	.sharper-bottom {
+		&.chatDiv {
+			// border-bottom-left-radius: 0;
+			// border-bottom-right-radius: 0;
+		}
+	}
+	.sharper-top {
+		&.chatDiv {
+			// border-top-left-radius: 0;
+			// border-top-right-radius: 0;
+		}
+	}
+}
+ion-fab-button {
+	width: 47px !important;
+	height: 47px !important;
+}
+ion-fab {
+	bottom: -22px !important;
+}
+.footerIcon {
+	color: #d14931;
+	margin-right: 10px;
+}
+ion-input {
+	--placeholder-color: #c7bab4;
+	font-size: 14px;
+}
+.chatDivLoader {
+	position: relative;
+	background: #9164ac7a;
+	border-radius: 16px;
+	min-width: 80px;
+	max-width: 80px;
+	display: flex;
+	align-items: center;
+	padding: 2px;
+	display: flex;
+	justify-content: center;
+}
+ion-text {
+	font-size: 10px;
+	color: black;
+}
+ion-col {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.imageAvatarBottomLoader {
+	max-width: 214px;
+	align-items: flex-end;
+	display: flex;
+	border-radius: 50%;
+	position: relative;
+	top: 8px;
+	z-index: 11;
+}
+.hidden {
+	visibility: hidden;
+}
+.loading-col {
+	justify-content: flex-start;
+	padding-left: 20px;
+}
+
+.right {
+	justify-content: flex-start;
+}
+.left {
+	justify-content: flex-end;
+}
+
+.clubbed {
+	.imageAvatarRight {
+		.chatDiv {
+			.corner-parent-right {
+				height: 30px;
+				width: 30px;
+				background: transparent;
+				position: absolute;
+				left: -30px;
+				bottom: 0;
+				overflow: hidden;
+				border-radius: 0;
+				.corner-child-right {
+					width: 30px;
+					height: 30px;
+					border-radius: 15px;
+					background: transparent;
+					box-shadow: 15px 12px 0 0px #E9EBEF;
+				}
+			}
+		}
+	}
+}
+.input-box {
+	// color: white;
+}

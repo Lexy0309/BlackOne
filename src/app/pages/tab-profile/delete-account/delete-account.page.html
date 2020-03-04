@@ -1,0 +1,26 @@
+<ion-content>
+  <div class="dialogClass">
+
+    <div class="bodyclass">
+
+      <div class="topclass">
+        <ion-label>{{'message.title_delete_account' | translate}}</ion-label>
+        <p>{{'message.description_delete_account' | translate}}</p>
+      </div>
+      <ion-item>
+        <div class="buttongroupclass">
+          <div class="buttonclass" (click)="segmentChanged('yes')">
+            <p class="belowpclass" [ngClass]="segmentTab == 'yes' ? 'selectedBtn' : ''">{{'yes' | translate}}</p>
+          </div>
+
+          <div class="dividelineclass"></div>
+
+          <div class="buttonclass" (click)="segmentChanged('no')">
+            <p class="belowpclass" [ngClass]="segmentTab == 'no' ? 'selectedBtn' : ''">{{'no' | translate}}</p>
+          </div>
+        </div>
+      </ion-item>
+    </div>
+
+  </div>
+</ion-content>
